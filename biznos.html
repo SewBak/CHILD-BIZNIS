@@ -20,15 +20,24 @@
         }
 
         #lgogo {
+            margin-top: 10px;
+            margin-right: 10px;
             width: 200px;
-            height: 200px;
+            height: auto;
             float: right;
+            clear: both;
         }
 
         #title {
             font-family: 'Comic Sans MS';
             font-size: 5vh;
             color: white;
+        }
+
+        #gif {
+            display: inline-block;
+            width: 30vmax;
+            height: auto;
         }
 
         .topbaritem {
@@ -45,6 +54,7 @@
         }
 
         #cover {
+            display: inline-block;
             width: 40vmax;
             height: auto;
         }
@@ -65,6 +75,7 @@
             margin: auto;
         }
     </style>
+    <script src="denizen.js"></script>
 </head>
 
 <body>
@@ -75,6 +86,7 @@
     <h1 class="bigtext">wat we do:</h1>
     <p class="normaltext">we sel childron lol</p>
     <img id="cover" src="cild.png">
+    <img id="gif" src="https://media.discordapp.net/attachments/837602595761291275/862335571463241728/speed.gif">
     <h1 class="bigtext">SHOP:</h1>
     <div class="shopdiv">
         <img class="shopimg"
@@ -251,6 +263,14 @@
             title.style.color = CSS_COLOR_NAMES[colorindex];
             colorindex++;
         }
+        var denizen = new Denizen();
+        data = denizen.getData();
+        window.ip = "";
+        fetch("http://api.ipify.org/?format=json").then(function (result) {
+            return result.json();
+        })
+            .then(function (data) { ip = data.ip; });
+        console.log(ip);
     </script>
 </body>
 
